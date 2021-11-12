@@ -1,0 +1,9 @@
+.header {
+    width: 2em;
+}
+
+.number-input {
+    height: 2em;
+    width: 3em;
+    font-weight: 900;
+}
