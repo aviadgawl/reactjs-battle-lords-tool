@@ -1,15 +1,21 @@
 import StatButton from '../stat-button/StatButton';
 import './Stat.css';
 
+import { useState } from 'react'
+
 export default function Stat(props) {
-    return <div>
+    const [value, setValue] = useState(0);
+
+    return (<div>
         <table>
-            <tr>
-                <td className="header"><span>{props.header}: </span></td>
-                <td><StatButton type="plus"></StatButton></td>
-                <td><input max="99" min="-99" className="number-input" type="number" /></td>
-                <td><StatButton type="minus"></StatButton></td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td title={props.tooltip}>{props.icon}</td>
+                    <td><StatButton onPress={() => { if(value < 100 ) setValue(value + 1) }} type="plus"></StatButton></td>
+                    <td><input max="99" min="-99" readOnly value={value} className="number-input" type="number" /></td>
+                    <td><StatButton onPress={() => { if(value > -100 )setValue(value - 1) }} type="minus"></StatButton></td>
+                </tr>
+            </tbody>
         </table>
-    </div>
+    </div>)
 }

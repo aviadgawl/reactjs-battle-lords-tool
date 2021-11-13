@@ -1,0 +1,27 @@
+.app-grid-container{
+    display: grid;
+    grid-template-columns: repeat(3, 14em);
+    gap: 10px;
+    grid-template-rows: repeat(2, auto);
+}
+
+.app-theme-buttons {
+    grid-row: 1;
+    grid-column: 1;
+    -ms-grid-column-span: 3;
+}
+
+.app-champion-one {
+    grid-row: 2;
+    grid-column: 1;
+}
+
+.app-champion-two {
+    grid-row: 2;
+    grid-column: 2;
+}
+
+.app-champion-three {
+    grid-row: 2;
+    grid-column: 3;
+}

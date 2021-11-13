@@ -1,4 +1,5 @@
 import Stat from '../stat/Stat';
+import { icons } from '../../common/icons';
 
 export default function Champion(props) {
     return <div>
@@ -6,10 +7,10 @@ export default function Champion(props) {
             <h3>{props.championName}</h3>
         </div>
         <div>
-            <Stat header="STR"></Stat>
-            <Stat header="DEX"></Stat>
-            <Stat header="INT"></Stat>
-            <Stat header="HP"></Stat>
+            <Stat icon={icons.force} tooltip="STR"></Stat>
+            <Stat icon={icons.speed} tooltip="DEX"></Stat>
+            <Stat icon={icons.smart} tooltip="INT"></Stat>
+            <Stat icon={icons.life} tooltip="HP"></Stat>
         </div>
     </div>
 }
