@@ -1,5 +1,6 @@
 .theme-button {
     display: inline-block;
+    cursor: pointer;
 }
 
 .theme-button-grid-container {
