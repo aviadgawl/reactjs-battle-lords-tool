@@ -1,10 +1,12 @@
+import './Champion.css';
+
 import Stat from '../stat/Stat';
 import { icons } from '../../common/icons';
 
 export default function Champion(props) {
     return <div style={{display:'inline-block'}}>
-        <div>
-            <h3>{props.championName}</h3>
+        <div className="champion-header-container">
+            <span>{props.championName}</span>
         </div>
         <div>
             <Stat icon={icons.force} tooltip="STR"></Stat>
