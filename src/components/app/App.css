@@ -6,10 +6,11 @@
 
 .app-grid-container{
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(4, 12rem);
     gap: 10px;
-    grid-template-rows: 3rem 13rem 13rem;
+    grid-template-rows: 3rem 14rem 14rem;
     justify-content: center;
+    border: 3px solid black;
 }
 
 .app-theme-buttons-container {
@@ -28,6 +29,14 @@
     box-shadow: 5px 5px 15px 5px rgba(0,0,0,0);
     text-align: center;
     border-radius: 10%;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.app-selected-champion {
+    width: 12rem;
+    display: inline-block;
+    margin: 3px;
 }
 
 .app-champion-1 {
@@ -45,19 +54,10 @@
     grid-column: 3;
 }
 
-.app-champion-4 {
+.app-champion-container {
     grid-row: 3;
-    grid-column: 1;
-}
-
-.app-champion-5 {
-    grid-row: 3;
-    grid-column: 2;
-}
-
-.app-champion-6 {
-    grid-row: 3;
-    grid-column: 3;
+    grid-column: span 4/ 4;
+    border: 2px solid black;
 }
 
 .app-champion-add {
