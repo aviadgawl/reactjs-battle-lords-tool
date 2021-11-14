@@ -8,34 +8,28 @@ import ChampionAdd from '../champion-add/ChampionAdd';
 
 function App() {
   const [theme, setTheme] = useState(themes.blue);
+  const [championList, setChampionList] = useState([]);
 
   return (
     <div className="app-grid-container app" style={{ backgroundColor: theme.secondaryBackground }}>
-      <div className="app-theme-buttons-container">
-        {Object.keys(themes).map(x => <div className="app-theme-buttons">
+      
+      <div className="app-theme-buttons-container" style={{ backgroundColor: theme.foreground }}>
+        {Object.keys(themes).map((x, i) => <div key={i} className="app-theme-buttons">
           <ThemeButton onPress={(t) => { setTheme(t) }} theme={themes[x]} width={30} height={30}></ThemeButton>
         </div>)}
       </div>
+
       <ThemeContext.Provider value={theme}>
-        <div className="app-champion-one">
+        {championList.map((x, i) => <div key={i} className={`app-champion-${i + 1}`}>
           <div className="app-champion" style={{ backgroundColor: theme.foreground }}>
-            <Champion championName="Ed"></Champion>
+            <Champion championName={x}></Champion>
           </div>
-        </div>
-        <div className="app-champion-two">
-          <div className="app-champion" style={{ backgroundColor: theme.foreground }}>
-            <Champion championName="Garuk"></Champion>
-          </div>
-        </div>
-        <div className="app-champion-three">
-          <div className="app-champion" style={{ backgroundColor: theme.foreground }}>
-            <Champion championName="Helen"></Champion>
-          </div>
-        </div>
+        </div>)}
         <div className="app-champion-add">
-          <ChampionAdd></ChampionAdd>
+          <ChampionAdd onPress={(newChampion) => { if (championList.length < 6) setChampionList([...championList, newChampion]) }}></ChampionAdd>
         </div>
       </ThemeContext.Provider>
+      
     </div>
   );
 }
