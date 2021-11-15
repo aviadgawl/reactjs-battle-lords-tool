@@ -16,10 +16,13 @@ function App() {
   const handleDropped = (championName) => {
     if(selectedChampionsList.length >= 3) return;
 
-    setSelectdChampionsList([...selectedChampionsList, championName]);
-    const championToRemoveIndex = championsPoolList.indexOf(championName);
-    championsPoolList.splice(championToRemoveIndex , 1)
-    setChampionsPoolList([...championsPoolList]);
+    setSelectdChampionsList(state => [...state, championName]);
+    
+    setChampionsPoolList(state => {
+      const championToRemoveIndex = state.indexOf(championName);
+      if(championToRemoveIndex !== -1) state.splice(championToRemoveIndex , 1)
+      return state;
+    });
   }
 
   return (
@@ -40,7 +43,7 @@ function App() {
           </Draggable>
         </div>)}
         <div className="app-champion-add">
-          <ChampionAdd onPress={(newChampion) => { if (championsPoolList.length < 3) setChampionsPoolList([...championsPoolList, newChampion]) }}></ChampionAdd>
+          <ChampionAdd onPress={(newChampion) => { if (championsPoolList.length < 3) setChampionsPoolList(state => [...state, newChampion]) }}></ChampionAdd>
         </div>
 
         <div className="app-champion-container">
