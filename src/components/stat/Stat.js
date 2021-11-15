@@ -11,9 +11,9 @@ export default function Stat(props) {
             <tbody>
                 <tr>
                     <td title={props.tooltip}>{props.icon}</td>
-                    <td><StatButton onPress={() => { if(value < 100 ) setValue(value + 1) }} type="plus"></StatButton></td>
+                    <td><StatButton onPress={() => { if (value < 100) setValue(prevValue => prevValue + 1) }} type="plus"></StatButton></td>
                     <td><input max="99" min="-99" readOnly value={value} className="number-input" type="number" /></td>
-                    <td><StatButton onPress={() => { if(value > -100 )setValue(value - 1) }} type="minus"></StatButton></td>
+                    <td><StatButton onPress={() => { if (value > -100) setValue(prevValue => prevValue - 1) }} type="minus"></StatButton></td>
                 </tr>
             </tbody>
         </table>
