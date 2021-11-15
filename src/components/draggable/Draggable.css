@@ -1,3 +1,7 @@
 .dragged {
     filter: grayscale(100%);
 }
+
+.draggable{
+    display: inline-block;
+}

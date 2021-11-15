@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import StatButton from '../stat-button/StatButton';
 
 export default function ChampionAdd(props) {
-    const championNamesList = useRef(['David', 'Mor', 'Aviad' , 'Adi' , 'Arik']);
+    const championNamesList = useRef(['David', 'Mor', 'Aviad', 'Adi', 'Arik', 'Shlomo']);
 
     const handelOnPress = () => {
         if (championNamesList.current.length === 0) return;

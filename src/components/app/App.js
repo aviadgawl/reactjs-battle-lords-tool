@@ -14,13 +14,13 @@ function App() {
   const [selectedChampionsList, setSelectdChampionsList] = useState([]);
 
   const handleDropped = (championName) => {
-    if(selectedChampionsList.length >= 3) return;
+    if (selectedChampionsList.length >= 3) return;
 
     setSelectdChampionsList(state => [...state, championName]);
-    
+
     setChampionsPoolList(state => {
       const championToRemoveIndex = state.indexOf(championName);
-      if(championToRemoveIndex !== -1) state.splice(championToRemoveIndex , 1)
+      if (championToRemoveIndex !== -1) state.splice(championToRemoveIndex, 1)
       return state;
     });
   }
@@ -35,21 +35,21 @@ function App() {
       </div>
 
       <ThemeContext.Provider value={theme}>
-        {championsPoolList.map((x, i) => <div key={i} className={`app-champion-${i + 1}`}>
-          <Draggable dragId={x}>
+        <div className="app-champions-container">
+          {championsPoolList.map((x, i) => <Draggable dragId={x}>
             <div className="app-champion" style={{ backgroundColor: theme.foreground }}>
               <Champion championName={x}></Champion>
             </div>
-          </Draggable>
-        </div>)}
+          </Draggable>)}
+        </div>
         <div className="app-champion-add">
           <ChampionAdd onPress={(newChampion) => { if (championsPoolList.length < 3) setChampionsPoolList(state => [...state, newChampion]) }}></ChampionAdd>
         </div>
 
-        <div className="app-champion-container">
+        <div className="app-seleced-champions-container">
           <DropContainer dropped={handleDropped}>
             {selectedChampionsList.map((x, i) =>
-              <div key={i} className="app-champion app-selected-champion" style={{ backgroundColor: theme.secondaryForeground }}>
+              <div key={i} className="app-champion" style={{ backgroundColor: theme.secondaryForeground }}>
                 <Champion championName={x}></Champion>
               </div>
             )}

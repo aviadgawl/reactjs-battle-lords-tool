@@ -13,7 +13,7 @@ export default function Draggable(props){
         setDragged(false);
     }
 
-    return (<div id={props.dragId} className={dragged ? 'dragged': ''} onDragEnd={handleDragEnd} onDragStart={handleDragStart} draggable={true}>
+    return (<div id={props.dragId} className={`draggable ${dragged ? 'dragged': ''}`} onDragEnd={handleDragEnd} onDragStart={handleDragStart} draggable={true}>
         {props.children}
     </div>)
 }
